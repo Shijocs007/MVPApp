@@ -23,6 +23,7 @@ interface HomeMVP {
     }
 
     interface Model {
+        fun insertAllDb(properties : List<Property>)
         fun loadDataFromDB() : List<Property>
         fun result(): Observable<PropertyResponse?>
     }

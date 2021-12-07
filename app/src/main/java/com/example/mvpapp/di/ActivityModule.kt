@@ -10,6 +10,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.components.SingletonComponent
+import io.realm.Realm
 
 @Module
 @InstallIn(ActivityComponent::class)
@@ -22,7 +23,7 @@ class ActivityModule {
 
 
     @Provides
-    fun provideRepository(newsApiService: PropertyApi): HomeMVP.Model{
-        return HomeRepo(newsApiService)
+    fun provideRepository(newsApiService: PropertyApi, realm: Realm): HomeMVP.Model{
+        return HomeRepo(newsApiService, realm)
     }
 }

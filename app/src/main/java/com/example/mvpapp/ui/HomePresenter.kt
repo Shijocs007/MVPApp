@@ -43,6 +43,7 @@ class HomePresenter(val repository : HomeMVP.Model, val syncManager : SyncManage
                     }
                     view?.setFacilities(properties)
                     view?.setExclusions(response.exclusions)
+                    repository.insertAllDb(properties)
                 }
 
                 override fun onError(e: Throwable) {

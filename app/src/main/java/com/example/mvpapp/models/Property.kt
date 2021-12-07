@@ -1,3 +1,8 @@
 package com.example.mvpapp.models
 
-data class Property(val id : Int = 0, val name : String, val type : Int = 1)
+import io.realm.RealmObject
+import io.realm.annotations.Required
+
+open class Property( var id : Int = 0,
+                     var name : String = "",
+                     var type : Int = 1) :  RealmObject()
