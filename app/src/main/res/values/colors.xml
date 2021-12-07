@@ -19,4 +19,11 @@
     <color name="white">#FFFFFF</color>
     <color name="iron">#CCCCCC</color>
     <color name="overlay_dark_40">#66000000</color>
+
+    <color name="grey_90">#263238</color>
+    <color name="grey_95">#1a1a1a</color>
+    <color name="grey_100_">#0d0d0d</color>
+    <color name="alabaster">#FAFAFA</color>
+    <color name="news_home_shimmer_txt_view_tint">#F0F0F0</color>
+    <color name="shimmer_bg">#eef0f5</color>
 </resources>

@@ -3,12 +3,13 @@ package com.example.mvpapp.ui
 import com.example.mvpapp.http.responsemodels.Exclusions
 import com.example.mvpapp.http.responsemodels.Facilities
 import com.example.mvpapp.http.responsemodels.PropertyResponse
+import com.example.mvpapp.models.Property
 import io.reactivex.Observable
 
 interface HomeMVP {
 
     interface View {
-        fun setFacilities(facilities: List<Facilities>)
+        fun setFacilities(facilities: List<Property>)
         fun setExclusions(exclusions: List<List<Exclusions>>)
         fun showProgressDialog()
         fun dismissProgressDialog()

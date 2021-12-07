@@ -1,6 +1,9 @@
 package com.example.mvpapp.ui
 
 import com.example.mvpapp.http.responsemodels.PropertyResponse
+import com.example.mvpapp.models.Property
+import com.example.mvpapp.utils.TYPE_OPTION
+import com.example.mvpapp.utils.TYPE_PROPERTY
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableObserver
@@ -18,7 +21,12 @@ class HomePresenter(val repository : HomeMVP.Model) : HomeMVP.Presenter {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeWith(object : DisposableObserver<PropertyResponse?>() {
                 override fun onNext(response: PropertyResponse) {
-                    view?.setFacilities(response.facilities)
+                    val properties = mutableListOf<Property>()
+                    response.facilities.forEach {
+                        properties.add(Property(it.facility_id, it.name, TYPE_PROPERTY))
+                        it.options.map { properties.add(Property(it.id, it.name, TYPE_OPTION)) }
+                    }
+                    view?.setFacilities(properties)
                     view?.setExclusions(response.exclusions)
                 }
 
