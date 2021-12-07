@@ -16,12 +16,14 @@ interface HomeMVP {
     }
 
     interface Presenter {
+        fun loadDataFromDB()
         fun loadData()
         fun rxUnsubscribe()
         fun makeView(view: View)
     }
 
     interface Model {
+        fun loadDataFromDB() : List<Property>
         fun result(): Observable<PropertyResponse?>
     }
 }

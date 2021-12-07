@@ -1,6 +1,7 @@
 package com.example.mvpapp.di
 
 import com.example.mvpapp.http.PropertyApi
+import com.example.mvpapp.preferences.SyncManager
 import com.example.mvpapp.ui.HomeMVP
 import com.example.mvpapp.ui.HomePresenter
 import com.example.mvpapp.ui.HomeRepo
@@ -15,8 +16,8 @@ import dagger.hilt.components.SingletonComponent
 class ActivityModule {
 
     @Provides
-    fun provideHomePresenter(model: HomeMVP.Model): HomeMVP.Presenter {
-        return HomePresenter(model)
+    fun provideHomePresenter(model: HomeMVP.Model, syncManager : SyncManager): HomeMVP.Presenter {
+        return HomePresenter(model, syncManager)
     }
 
 

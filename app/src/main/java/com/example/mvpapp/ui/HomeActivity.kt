@@ -32,12 +32,13 @@ class HomeActivity : BaseActivity(), HomeMVP.View {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(context)
         }
+
+        presenter.makeView(this)
+        presenter.loadDataFromDB()
     }
 
     override fun onStart() {
         super.onStart()
-        presenter.makeView(this)
-        presenter.loadData()
     }
 
     override fun onStop() {
@@ -50,7 +51,6 @@ class HomeActivity : BaseActivity(), HomeMVP.View {
     }
 
     override fun setExclusions(exclusions: List<List<Exclusions>>) {
-        TODO("Not yet implemented")
     }
 
     override fun showProgressDialog() {
